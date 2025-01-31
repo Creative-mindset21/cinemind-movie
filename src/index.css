@@ -44,7 +44,7 @@
     }
 
     & input {
-      @apply w-full outline-none border-none placeholder:text-[#a885db] bg-transparent text-gray-200 text-lg;
+      @apply w-full outline-none border-none placeholder:text-[#a885db] bg-transparent text-gray-200 text-base;
     }
   }
 
