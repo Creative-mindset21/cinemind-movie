@@ -26,11 +26,11 @@
 
 @layer components {
   .pattern {
-    @apply bg-hero-pattern w-screen h-[100dvh] bg-center bg-cover absolute z-0;
+    @apply bg-hero-pattern w-screen h-screen bg-center bg-cover absolute z-0;
   }
 
   .wrapper {
-    @apply px-5 w-full mx-auto;
+    @apply px-5 max-w-7xl mx-auto flex flex-col relative z-10;
   }
 
   .search {
@@ -42,6 +42,38 @@
 
     & input {
       @apply w-full outline-none border-none placeholder:text-[#a885db] bg-transparent text-gray-200 text-lg;
+    }
+  }
+
+  .movies {
+    @apply text-white space-y-9;
+
+    & h2 {
+      @apply text-4xl font-semibold tracking-wide;
+    }
+
+    & ul {
+      @apply grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+    }
+  }
+
+  .movie-card {
+    @apply bg-light-100 p-4 rounded-2xl shadow-inner shadow-[#cecefb]/5;
+
+    & img {
+      @apply w-full rounded-lg h-auto;
+    }
+
+    & h3 {
+      @apply text-xl font-semibold;
+    }
+
+    & .content {
+      @apply mt-2;
+    }
+
+    & .rating {
+      @apply flex gap-3 text-lg items-center;
     }
   }
 }

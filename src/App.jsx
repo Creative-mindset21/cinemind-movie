@@ -23,8 +23,9 @@ function App() {
 
   const url = `${API_URL}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
   const { data, loading, errorMessage } = useFetch(url, options);
-  let movieData = data.results;
-  console.log(movieData);
+  let movieData = data.results || [];
+
+  // ! LOOPED MOVIE DATA
 
   return (
     <section className="pattern">

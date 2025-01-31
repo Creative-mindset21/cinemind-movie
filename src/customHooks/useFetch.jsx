@@ -19,7 +19,7 @@ const useFetch = (url, options) => {
       }
       setData(data);
     } catch (err) {
-      console.error(err);
+      alert(err);
     } finally {
       setLoading(false);
     }
@@ -27,7 +27,7 @@ const useFetch = (url, options) => {
 
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [url, options]);
 
   return { data, loading, errorMessage };
 };
