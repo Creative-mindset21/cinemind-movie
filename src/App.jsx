@@ -8,7 +8,7 @@ import useFetch from "./customHooks/useFetch";
 export const ValueContext = createContext();
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const API_URL = "https://api.themoviedb.org/3/discover/movie";
+const API_URL = "https://api.themoviedb.org/3";
 
 const options = {
   method: "GET",
@@ -20,8 +20,12 @@ const options = {
 
 function App() {
   const [search, setSearch] = useState("");
+  const url1 = `${API_URL}/search/movie?query=${search}&include_adult=true&language=en-US&page=1`;
 
-  const url = `${API_URL}?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
+  const url2 = `${API_URL}/discover/movie?include_adult=true&include_video=true&language=en-US&page=1&sort_by=popularity.desc`;
+
+  const url = search ? url1 : url2;
+
   const { data, loading, errorMessage } = useFetch(url, options);
   let movieData = data.results || [];
 
@@ -32,7 +36,7 @@ function App() {
           value={{ search, setSearch, errorMessage, loading, movieData }}
         >
           <Header />
-          <p className="text-white">{search}</p>
+
           <Movies />
         </ValueContext.Provider>
       </div>

@@ -7,6 +7,8 @@ const useFetch = (url, options) => {
 
   //!  REUSEABLE FETCH FUNCTION
   const fetchMovies = async () => {
+    setLoading(true);
+    setErrorMessage("");
     try {
       const response = await fetch(url, options);
       if (!response.ok) {
@@ -26,8 +28,8 @@ const useFetch = (url, options) => {
   };
 
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    url && fetchMovies();
+  }, [url]);
 
   return { data, loading, errorMessage };
 };
