@@ -1,1 +1,30 @@
+/* ? TAILWIND CSS LINKING */
 @import "tailwindcss";
+
+/* ? GOOGLE FONTS LINKING*/
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@theme {
+  --background-image-hero-pattern: url("./hero-bg.png");
+  --font-DM-Sans: "DM Sans", serif;
+}
+
+@layer base {
+  body {
+    font-family: "DM Sans", sans-serif;
+    background: #030014;
+  }
+
+  header img {
+    @apply w-full max-w-lg object-contain mx-auto drop-shadow-md h-auto;
+  }
+}
+
+@layer components {
+  .pattern {
+    @apply bg-hero-pattern w-screen h-[100dvh] bg-center bg-cover absolute z-0;
+  }
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r from-[#00008b] to-[#ff69b4] bg-clip-text text-transparent;
+}
