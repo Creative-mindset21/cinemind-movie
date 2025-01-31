@@ -5,6 +5,7 @@ import Movies from "./components/Movies";
 import useFetch from "./customHooks/useFetch";
 import { Analytics } from "@vercel/analytics/react";
 import { useDebounce } from "react-use";
+import PrevNext from "./components/PrevNext";
 
 // ! CONTEXT PROVIDER API
 export const ValueContext = createContext();
@@ -25,11 +26,29 @@ const options = {
 function App() {
   const [search, setSearch] = useState("");
   const [debounce, setDebounce] = useState("");
+  const [pageCount, setPageCount] = useState(1);
+
+  // ! HANDLE PREV MOVIE LIST BUTTON
+  const prevBtn = () => {
+    if (pageCount > 1) {
+      setPageCount((prev) => prev - 1);
+    } else if (pageCount === 1) {
+      setPageCount(pageCount);
+    } else {
+      return;
+    }
+  };
+
+  // ! HANDLE NEXT MOVIE LIST BUTTON
+  const nextBtn = () => {
+    setPageCount((prev) => prev + 1);
+  };
 
   useDebounce(() => setDebounce(search), 500, [search]);
 
-  const url1 = `${API_URL}/search/movie?query=${search}&include_adult=true&language=en-US&page=1`;
-  const url2 = `${API_URL}/discover/movie?include_adult=true&include_video=true&language=en-US&page=1&sort_by=popularity.desc`;
+  // !URLS
+  const url1 = `${API_URL}/search/movie?query=${search}&include_adult=true&language=en-US&page=${pageCount}`;
+  const url2 = `${API_URL}/discover/movie?include_adult=true&include_video=true&language=en-US&page=${pageCount}&sort_by=popularity.desc`;
 
   const url = debounce ? url1 : url2;
 
@@ -40,10 +59,20 @@ function App() {
     <section className="pattern">
       <div className="wrapper">
         <ValueContext.Provider
-          value={{ search, setSearch, errorMessage, loading, movieData }}
+          value={{
+            search,
+            setSearch,
+            errorMessage,
+            loading,
+            movieData,
+            prevBtn,
+            nextBtn,
+            pageCount,
+          }}
         >
           <Header />
           <Movies />
+          <PrevNext />
           <Analytics />
         </ValueContext.Provider>
       </div>

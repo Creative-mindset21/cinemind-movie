@@ -8,6 +8,7 @@
   --background-image-hero-pattern: url("../public/hero-bg.png");
   --font-DM-Sans: "DM Sans", serif;
   --color-light-100: #0f0d23;
+  --color-light-500: #ab8bff;
 }
 
 @layer base {
@@ -60,7 +61,7 @@
   }
 
   .movie-card {
-    @apply bg-light-100 p-4 rounded-2xl shadow-inner shadow-[#cecefb]/5;
+    @apply bg-light-100 p-4 rounded-2xl shadow-inner shadow-[#cecefb]/5 hover:shadow-[#cecefb]/50 cursor-pointer;
 
     & img {
       @apply w-full rounded-lg h-auto;
@@ -76,6 +77,14 @@
 
     & .rating {
       @apply flex gap-3 text-lg items-center;
+    }
+  }
+
+  .prev-next {
+    @apply text-light-500 py-8 px-4 flex justify-between items-center;
+
+    & .icons {
+      @apply bg-light-100 p-3 rounded-md cursor-pointer;
     }
   }
 }
