@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { createContext } from "react";
 import Movies from "./components/Movies";
 import useFetch from "./customHooks/useFetch";
+import { Analytics } from "@vercel/analytics/react";
 
 // !CONTEXT PROVIDER API
 export const ValueContext = createContext();
