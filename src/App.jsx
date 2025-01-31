@@ -37,8 +37,8 @@ function App() {
           value={{ search, setSearch, errorMessage, loading, movieData }}
         >
           <Header />
-
           <Movies />
+          <Analytics />
         </ValueContext.Provider>
       </div>
     </section>
