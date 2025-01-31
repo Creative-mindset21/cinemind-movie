@@ -6,12 +6,17 @@
 @theme {
   --background-image-hero-pattern: url("./hero-bg.png");
   --font-DM-Sans: "DM Sans", serif;
+  --color-light-100: #0f0d23;
 }
 
 @layer base {
   body {
     font-family: "DM Sans", sans-serif;
     background: #030014;
+  }
+
+  header {
+    @apply text-white flex flex-col items-center;
   }
 
   header img {
@@ -22,6 +27,22 @@
 @layer components {
   .pattern {
     @apply bg-hero-pattern w-screen h-[100dvh] bg-center bg-cover absolute z-0;
+  }
+
+  .wrapper {
+    @apply px-5 w-full mx-auto;
+  }
+
+  .search {
+    @apply flex items-center gap-4 bg-light-100 px-4 py-3 w-full max-w-xl rounded-lg;
+
+    & svg {
+      @apply fill-[#AB8BFF];
+    }
+
+    & input {
+      @apply w-full outline-none border-none placeholder:text-[#a885db] bg-transparent text-gray-200 text-lg;
+    }
   }
 }
 
