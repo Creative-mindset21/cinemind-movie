@@ -14,12 +14,12 @@ const useFetch = (url, options) => {
       }
 
       const data = await response.json();
-      if (!data.results) {
+      if (!data.results || data.length > 0) {
         setErrorMessage("Failed to fetch data");
       }
       setData(data);
     } catch (err) {
-      alert(err);
+      setErrorMessage(err.message);
     } finally {
       setLoading(false);
     }

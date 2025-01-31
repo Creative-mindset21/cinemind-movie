@@ -15,7 +15,7 @@ const Header = () => {
       </h1>
 
       <Search />
-      <p className="text-red-800 mt-4 font-bold">{errorMessage}</p>
+      <p className="text-red-600 text-2xl mt-4 font-bold">{errorMessage}</p>
     </header>
   );
 };
