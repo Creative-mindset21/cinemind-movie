@@ -27,7 +27,7 @@ const useFetch = (url, options) => {
 
   useEffect(() => {
     fetchMovies();
-  }, [url, options]);
+  }, []);
 
   return { data, loading, errorMessage };
 };

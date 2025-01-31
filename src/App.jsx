@@ -25,8 +25,6 @@ function App() {
   const { data, loading, errorMessage } = useFetch(url, options);
   let movieData = data.results || [];
 
-  // ! LOOPED MOVIE DATA
-
   return (
     <section className="pattern">
       <div className="wrapper">
@@ -34,6 +32,7 @@ function App() {
           value={{ search, setSearch, errorMessage, loading, movieData }}
         >
           <Header />
+          <p className="text-white">{search}</p>
           <Movies />
         </ValueContext.Provider>
       </div>
