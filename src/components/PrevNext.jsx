@@ -7,7 +7,7 @@ const PrevNext = () => {
 
   return (
     <section className="prev-next">
-      <button className="icons" onClick={prevBtn}>
+      <button className="icons" onClick={prevBtn} id="arrow-left">
         <FaArrowLeft />
       </button>
 
@@ -16,7 +16,7 @@ const PrevNext = () => {
         <span className="text-gray-500">/50</span>
       </p>
 
-      <button className="icons" onClick={nextBtn}>
+      <button className="icons" onClick={nextBtn} id="arrow-right">
         <FaArrowRight />
       </button>
     </section>
