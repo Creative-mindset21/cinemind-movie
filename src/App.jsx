@@ -48,7 +48,7 @@ function App() {
 
   // !URLS
   const url1 = `${API_URL}/search/movie?query=${search}&include_adult=false&include_video=true&language=en-US&page=${pageCount}`;
-  const url2 = `${API_URL}/trending/movie/week?include_adult=false&include_video=true&language=en-US&page=${pageCount}&sort_by=popularity.desc`;
+  const url2 = `${API_URL}/discover/movie?include_adult=false&include_video=true&language=en-US&page=${pageCount}&sort_by=popularity.desc`;
 
   const url = debounce ? url1 : url2;
 
