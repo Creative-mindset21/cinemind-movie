@@ -20,6 +20,7 @@ const useFetch = (url, options) => {
         setErrorMessage("Failed to fetch data");
       }
       setData(data);
+      console.log(data)
     } catch (err) {
       setErrorMessage(err.message);
     } finally {
